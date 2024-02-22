@@ -10,7 +10,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    max-width: 430px;
+    max-width: auto;
     width: 100%;
     background: #fff;
     border-radius: 7px;
@@ -25,7 +25,7 @@ body {
     margin-bottom: 1.5rem;
   }
 
-/* Table Styles */
+
 table {
     width:  100%;
     border-collapse: collapse;
