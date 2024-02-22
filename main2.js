@@ -1,3 +1,4 @@
+let fact=1;
 document.getElementById("loginform").addEventListener("submit", function(event) {
     event.preventDefault(); 
     
@@ -19,16 +20,19 @@ document.getElementById("loginform").addEventListener("submit", function(event) 
     .then(response => {
       if (!response.ok) {
         alert("Invalid Login Credentials!!!!");
+        fact=2;
       }
-      return response.json();
+      else{
+      return response.json();}
     })
     .then(data => {
-      alert("Login Success!!");
+        if(fact == 1){
+      alert("Login Success");
 
       const jsonString = JSON.stringify(data);
 
       localStorage.setItem("userData", jsonString);
-      window.location.href="user.html";
+      window.location.href="user.html";}
 
     })
     .catch(error => {
