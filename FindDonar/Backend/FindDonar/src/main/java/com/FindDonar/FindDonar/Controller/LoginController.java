@@ -11,17 +11,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.FindDonar.FindDonar.Entity.LoginEntity;
 import com.FindDonar.FindDonar.Entity.RegisterEntity;
-import com.FindDonar.FindDonar.Jparepository.RegisterJparepo;
+import com.FindDonar.FindDonar.Services.LoginService;
 
 @RestController
 public class LoginController {
     @Autowired
-    RegisterJparepo registerJpaRepo;
+    private LoginService loginService;
 
     @CrossOrigin
     @PostMapping("/donar/login")
     public ResponseEntity<?> getUserDetailsByEmailAndPassword(@RequestBody LoginEntity login) {
-        RegisterEntity user =registerJpaRepo.findByEmailAndPassword(login.getEmail(),login.getPassword());
+        System.out.println("login");
+        RegisterEntity user =loginService.getLogin(login);
 
         if (user != null) {
             return ResponseEntity.ok(user);
